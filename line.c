@@ -41,7 +41,7 @@ void bhams(int x1, int y1, int x2, int y2)
         for (int i = 0; i < dx; i++)
         {
             x = x + incx;
-            ;
+            
             if (p < 0)
             {
                 y = y;
@@ -104,7 +104,7 @@ int main(int argc, char **argv)
     scanf("%d %d", &x1, &y1);
     printf("Enter final points");
     scanf("%d %d", &x2, &y2);
-    
+
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
     glutInitWindowSize(500, 500);

@@ -50,6 +50,7 @@ void display()
     glEnd();
 
     trotate(0, 0);
+    
     glColor3f(0, 1, 0);
     glBegin(GL_TRIANGLES);
     glVertex2f(result[0][0], result[1][0]);
