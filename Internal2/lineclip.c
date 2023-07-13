@@ -33,21 +33,23 @@ void lineclipping(float x1, float y1, float x2, float y2)
 
     do
     {
-
+        
+        //completely inside
         if ((code1 | code2) == 0)
         {
             done = 1;
             accept = 1;
         }
 
+        //completely outside
         else if (code1 & code2)
         {
             done = 1;
         }
 
+        //partial
         else
         {
-
             if (code1 != 0)
                 codeout = code1;
             else
@@ -71,9 +73,9 @@ void lineclipping(float x1, float y1, float x2, float y2)
                 x = x1 + (ymin - y1) * ((x2 - x1) / (y2 - y1));
             }
 
+            //top
             else
             {
-
                 y = ymax;
                 x = x1 + (ymax - y1) * ((x2 - x1) / (y2 - y1));
             }
@@ -87,7 +89,6 @@ void lineclipping(float x1, float y1, float x2, float y2)
 
             else
             {
-
                 x2 = x;
                 y2 = y;
                 code2 = compute(x2, y2);
@@ -98,7 +99,6 @@ void lineclipping(float x1, float y1, float x2, float y2)
 
     if (accept)
     {
-
         glTranslatef(100, 100, 0);
 
         glColor3f(0, 0, 0);
@@ -118,9 +118,10 @@ void lineclipping(float x1, float y1, float x2, float y2)
         glEnd();
     }
 }
+
 void display()
 {
-
+    
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
 
@@ -147,7 +148,6 @@ void display()
 
 void init()
 {
-
     gluOrtho2D(0, 500, 0, 500);
 }
 

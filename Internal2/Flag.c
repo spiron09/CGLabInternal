@@ -5,6 +5,7 @@
 float cp[4][2] = {{100, 400}, {150, 450}, {200, 350}, {250, 400}};
 float theta = 0;
 int flag = 0;
+
 int fact(int n)
 {
     int i, num = 1;
@@ -49,7 +50,7 @@ void display()
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    theta = (theta * 3.14) / 180;
+    // theta = (theta * 3.14) / 180;
     cp[1][0] += sin(theta);
     cp[1][1] += sin(theta);
 
@@ -94,7 +95,7 @@ void display()
 
 void idle()
 {
-    theta += 1.0;
+    theta += 0.20;
     if (theta > 360)
         theta = 0;
     display();
@@ -123,16 +124,18 @@ int main(int argc, char **argv)
     glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
     glutInitWindowSize(500, 500);
     glutInitWindowPosition(0, 0);
-    glutCreateWindow("CURVE_188");
+    glutCreateWindow("CURVE_177");
     init();
-    glutDisplayFunc(display);
-    glutMainLoop();
 
     glutCreateMenu(menu);
     glutAddMenuEntry("Start", 1);
     glutAddMenuEntry("Stop", 2);
     glutAddMenuEntry("Exit", 3);
     glutAttachMenu(GLUT_RIGHT_BUTTON);
+    glutDisplayFunc(display);
+    
+
+    
     glutMainLoop();
     return 0;
 }
